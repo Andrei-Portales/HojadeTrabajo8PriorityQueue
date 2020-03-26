@@ -1,1 +1,1 @@
-https://github.com/Andrei-Portales/HojadeTrabajo8PriorityQueue/new/master
+https://github.com/Andrei-Portales/HojadeTrabajo8PriorityQueue
