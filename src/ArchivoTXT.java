@@ -50,12 +50,12 @@ public class ArchivoTXT {
 	 * Funcion para leer el txt
 	 * @return
 	 */
-	public static ArrayList<String> leerTXT(String path) {
+	public static Object[] leerTXT(String path) {
 		
 		File archivo = new File(path);
 		FileReader fr;
 		BufferedReader br;
-		ArrayList<String> lineas = new ArrayList<String>();
+		ArrayList<Paciente> lineas = new ArrayList<Paciente>();
 		
 		try {
 			
@@ -66,7 +66,8 @@ public class ArchivoTXT {
 			String linea = "";
 			
 			while((linea = br.readLine()) != null) {
-				lineas.add(linea);
+				String[] split = linea.split(", "); 
+				lineas.add(new Paciente(split[0].trim(),split[1].trim(),split[2].trim()));
 				
 			}
 			
@@ -76,10 +77,10 @@ public class ArchivoTXT {
 			
 			
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Ha sucedido un error leyendo el archivo " + e);
+			
 		}
 		
-		return lineas;
+		return lineas.toArray();
 	}
 
 }

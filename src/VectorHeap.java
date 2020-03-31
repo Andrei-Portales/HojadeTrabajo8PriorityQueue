@@ -1,16 +1,15 @@
 import java.util.Vector;
 
-public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
-{
+public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>{
 
-	protected Vector<E> data; // the data, kept in heap order
-
+	protected Vector<E> data;
+	
 	public VectorHeap()
 	// post: constructs a new priority queue
 	{
 		data = new Vector<E>();
 	}
-
+	
 	public VectorHeap(Vector<E> v)
 	// post: constructs a new priority queue from an unordered vector
 	{
@@ -58,6 +57,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 		data.set(leaf,value);
 	}
 
+	@Override
 	public void add(E value)
 	// pre: value is non-null comparable
 	// post: value is added to priority queue
@@ -100,6 +100,7 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 		}
 	}
 
+	@Override
 	public E remove()
 	// pre: !isEmpty()
 	// post: returns and removes minimum value from queue
@@ -110,34 +111,70 @@ public class VectorHeap<E extends Comparable<E>> implements PriorityQueue<E>
 		if (data.size() > 1) pushDownRoot(0);
 		return minVal;
 	}
-
-	@Override
-	public int compareTo(E arg0) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public E getFirst() {
 		// TODO Auto-generated method stub
-		return null;
+		return data.firstElement();
 	}
+
+
 
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
+		if (data.size() <= 0) return true; 
+		
 		return false;
 	}
 
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return data.size();
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		data.clear();
 	}
+	
+	@Override
+	public String toString() {
+		String datos = "";
+		
+		for (E p:data) {
+			datos += p.toString() + "\n\n";
+		}
+		
+		return datos;
+	}
+	
+	
+	@Override
+	public PriorityQueue<E> clone(){
+		PriorityQueue<E> temp = new VectorHeap<E>();
+		for (E e:data) {
+			temp.add(e);
+		}
+		
+		return temp;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 }

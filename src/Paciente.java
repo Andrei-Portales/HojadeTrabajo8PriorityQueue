@@ -7,7 +7,6 @@ public class Paciente implements Comparable<Paciente>{
 	private String codigo;
 	
 	
-
 	
 	public Paciente(String nombre, String sintoma, String codigo) {
 		super();
@@ -15,12 +14,6 @@ public class Paciente implements Comparable<Paciente>{
 		this.sintoma = sintoma;
 		this.codigo = codigo;
 	}
-	
-	
-
-	
-
-
 
 	/**
 	 * @return the nombre
@@ -73,5 +66,9 @@ public class Paciente implements Comparable<Paciente>{
 		return codigo.compareTo(o.codigo);
 	}
 
+	@Override
+	public String toString() {
+		return "Codigo: " + codigo + "\nNombre: " + nombre + "\nSintoma: " + sintoma;
+	}
 
 }
